@@ -60,7 +60,7 @@ public class OkHttpService {
                 .url(baseUrl + endpoint)
                 .addHeader("cache-control", "no-cache")
                 .addHeader("Authorization", "Bearer " + token)
-                .addHeader("region", "eu")
+                .addHeader("region", System.getenv("AWS_REGION"))
                 .build();
         try{
             Response response = getClient().newCall(request).execute();

@@ -20,6 +20,8 @@ public class AlexaHandler {
             Directive directive = mapper.readValue(request, Directive.class);
             Header header = directive.getHeader();*/
 
+            System.out.println("REGION>>>>>"+System.getenv("AWS_REGION"));
+
             JSONObject jsonRequest = new JSONObject(request);
             JSONObject directive = (JSONObject) jsonRequest.get("directive");
             JSONObject header = (JSONObject) directive.get("header");
