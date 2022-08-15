@@ -60,6 +60,7 @@ public class OkHttpService {
                 .url(baseUrl + endpoint)
                 .addHeader("cache-control", "no-cache")
                 .addHeader("Authorization", "Bearer " + token)
+                .addHeader("region", "eu")
                 .build();
         try{
             Response response = getClient().newCall(request).execute();

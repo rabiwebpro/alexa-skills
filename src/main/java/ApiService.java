@@ -29,4 +29,17 @@ public class ApiService {
             return "{\"error\": \"Invalid token\"}";
         }
     }
+
+    public static String handleAuthorization(String request){
+        JSONObject jsonRequest = new JSONObject(request);
+        JSONObject directive = (JSONObject) jsonRequest.get("directive");
+        String token = directive.getJSONObject("payload").getJSONObject("grantee").optString("token", "INVALID");
+        try {
+            System.out.println("Sending authorization request to remote server....");
+            return OkHttpService.post("/v3/handleRequest", token, request);
+        }catch (IOException ex){
+            System.out.println("Error fetching handle request response:::"+ex);
+            return "{\"error\": \"Invalid token\"}";
+        }
+    }
 }

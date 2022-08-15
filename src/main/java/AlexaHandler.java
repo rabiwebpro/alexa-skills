@@ -32,8 +32,9 @@ public class AlexaHandler {
             switch(namespace) {
 
                 case "Alexa.Authorization":
-                    System.out.println("Found Alexa.Authorization Namespace");
-                    ar = new AlexaResponse("Alexa.Authorization","AcceptGrant", "INVALID", "INVALID", correlationToken);
+                    apiResponse = ApiService.handleAuthorization(request);
+                    //System.out.println("Found Alexa.Authorization Namespace");
+                    //ar = new AlexaResponse("Alexa.Authorization","AcceptGrant", "INVALID", "INVALID", correlationToken);
                     break;
 
                 case "Alexa.Discovery":
