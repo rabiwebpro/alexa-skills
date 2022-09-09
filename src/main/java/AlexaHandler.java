@@ -76,6 +76,10 @@ public class AlexaHandler {
                     }*/
 
                     break;
+                case "Alexa.ColorController":
+                    System.out.println("Found Alexa.ColorController Namespace");
+                    apiResponse = ApiService.handleRequest(request);
+                    break;
                 case "Alexa":
                     System.out.println("Found Alexa Namespace");
                     apiResponse = ApiService.handleRequest(request);
